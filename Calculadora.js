@@ -13,34 +13,37 @@ export default class Calculadora extends Component {
 
   render() {
     const cero = () => {
-      this.setState({resultado: this.state.resultado + 0});
+      this.setState({resultado: this.state.resultado.toString() + 0});
     };
     const uno = () => {
-      this.setState({resultado: this.state.resultado + 1});
+      this.setState({resultado: this.state.resultado.toString() + 1});
     };
     const dos = () => {
-      this.setState({resultado: this.state.resultado + 2});
+      this.setState({resultado: this.state.resultado.toString() + 2});
     };
     const tres = () => {
-      this.setState({resultado: this.state.resultado + 3});
+      this.setState({resultado: this.state.resultado.toString() + 3});
     };
     const cuatro = () => {
-      this.setState({resultado: this.state.resultado + 4});
+      this.setState({resultado: this.state.resultado.toString() + 4});
     };
     const cinco = () => {
-      this.setState({resultado: this.state.resultado + 5});
+      this.setState({resultado: this.state.resultado.toString() + 5});
     };
     const seis = () => {
-      this.setState({resultado: this.state.resultado + 6});
+      this.setState({resultado: this.state.resultado.toString() + 6});
     };
     const siete = () => {
-      this.setState({resultado: this.state.resultado + 7});
+      this.setState({resultado: this.state.resultado.toString() + 7});
     };
     const ocho = () => {
-      this.setState({resultado: this.state.resultado + 8});
+      this.setState({resultado: this.state.resultado.toString() + 8});
     };
     const nueve = () => {
-      this.setState({resultado: this.state.resultado + 9});
+      this.setState({resultado: this.state.resultado.toString() + 9});
+    };
+    const punto = () => {
+      this.setState({resultado: this.state.resultado.toString() + '.'});
     };
     const suma = () => {
       this.setState({temp: this.state.resultado});
@@ -69,16 +72,20 @@ export default class Calculadora extends Component {
     };
     const btnResultado = () => {
       if (this.state.operacion === 'suma') {
-        var res = parseInt(this.state.temp) + parseInt(this.state.resultado);
+        var res =
+          parseFloat(this.state.temp) + parseFloat(this.state.resultado);
         this.setState({resultado: res});
       } else if (this.state.operacion === 'resta') {
-        var res = parseInt(this.state.temp) - parseInt(this.state.resultado);
+        var res =
+          parseFloat(this.state.temp) - parseFloat(this.state.resultado);
         this.setState({resultado: res});
       } else if (this.state.operacion === 'multiplicacion') {
-        var res = parseInt(this.state.temp) * parseInt(this.state.resultado);
+        var res =
+          parseFloat(this.state.temp) * parseFloat(this.state.resultado);
         this.setState({resultado: res});
       } else if (this.state.operacion === 'division') {
-        var res = parseInt(this.state.temp) / parseInt(this.state.resultado);
+        var res =
+          parseFloat(this.state.temp) / parseFloat(this.state.resultado);
         this.setState({resultado: res});
       }
     };
@@ -114,7 +121,7 @@ export default class Calculadora extends Component {
               <Button title="2" onPress={dos}></Button>
             </View>
             <View style={styles.btn1}>
-              <Button title="."></Button>
+              <Button title="." onPress={punto}></Button>
             </View>
           </View>
           <View style={styles.columna1}>
